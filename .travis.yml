@@ -4,13 +4,13 @@ services:
   - docker
 
 before_install:
-- docker build --no-cache -t ${TRAVIS_REPO_SLUG}:${TRAVIS_COMMIT} .
-- docker run ${TRAVIS_REPO_SLUG}:${TRAVIS_COMMIT} /go/src/github.com//suryanaicker79/travisci-golang-example/travisci-golang-example.test
-- docker run -d ${TRAVIS_REPO_SLUG}:${TRAVIS_COMMIT}
+- docker build --no-cache -t travis .
+- docker run travis /go/src/github.com//suryanaicker79/travisci-golang-example/travisci-golang-example.test
+- docker run -d travis
 
 script:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push ${TRAVIS_REPO_SLUG}:${TRAVIS_COMMIT}
+  - docker push travis
 
 
 
