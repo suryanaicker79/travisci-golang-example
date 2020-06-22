@@ -4,13 +4,13 @@ services:
   - docker
 
 before_install:
-- docker build --no-cache -t suryanaicker:${TRAVIS_COMMIT} .
-- docker run suryanaicker:${TRAVIS_COMMIT} /go/src/github.com/suryanaicker79/travisci-golang-example/travisci-golang-example.test
-- docker run -d suryanaicker:${TRAVIS_COMMIT}
+- docker build --no-cache -t travisci-golang-example:suryanaicker .
+- docker run travisci-golang-example:suryanaicker /go/src/github.com/suryanaicker79/travisci-golang-example/travisci-golang-example.test
+- docker run -d travisci-golang-example:suryanaicker
 
 script:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push suryanaicker:${TRAVIS_COMMIT}
+  - docker push travisci-golang-example:suryanaicker
 
 
 
