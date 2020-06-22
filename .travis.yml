@@ -3,15 +3,18 @@ language: go
 services:
   - docker
 
-before_install:
-- docker build --no-cache -t suryanaicker79/travisexample:travis .
-- docker run suryanaicker79/travisexample:travis https://github.com/suryanaicker79/travisci-golang-example
-- docker run -d -p 127.0.0.1:8000:8000 suryanaicker79/travisexample:travis
+building:
+-docker build -t travisci .
 
-script:
-  - curl 127.0.0.1:8000
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push suryanaicker79/travisexample:travis
+#before_install:
+#- docker build --no-cache -t suryanaicker79/travisexample:travis .
+#- docker run suryanaicker79/travisexample:travis https://github.com/suryanaicker79/travisci-golang-example
+#- docker run -d -p 127.0.0.1:8000:8000 suryanaicker79/travisexample:travis
+
+#script:
+  #- curl 127.0.0.1:8000
+  #- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+ # - docker push suryanaicker79/travisexample:travis
 
 
 #language: go
