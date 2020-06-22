@@ -9,7 +9,7 @@ before_install:
 - docker run -d ${TRAVIS_REPO_SLUG}:${TRAVIS_COMMIT}
 
 script:
-   -docker login --username=suryanaicker79 --password=viraj0612
+   -docker login -username="suryanaicker79" -password="viraj0612"
   - docker push ${TRAVIS_REPO_SLUG}:${TRAVIS_COMMIT}
 
 
