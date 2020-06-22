@@ -10,7 +10,7 @@ before_install:
 
 script:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push suryanaicker/${TRAVIS_REPO_SLUG}
+  - docker push suryanaicker/travisci-golang-example
 
 
 
