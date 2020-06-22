@@ -5,7 +5,7 @@ services:
 
 before_install:
 - docker build --no-cache -t ${TRAVIS_REPO_SLUG}:${TRAVIS_COMMIT} .
-- docker run ${TRAVIS_REPO_SLUG}:${TRAVIS_COMMIT} /go/src/github.com/kainlite/whatismyip-go/whatismyip-go.test
+- docker run ${TRAVIS_REPO_SLUG}:${TRAVIS_COMMIT} /go/src/github.com/suryanaicker79/travisci-golang-example/travisci-golang-example.test
 - docker run -d ${TRAVIS_REPO_SLUG}:${TRAVIS_COMMIT}
 
 script:
