@@ -1,6 +1,6 @@
 FROM golang:1.12-alpine
 
-WORKDIR $GOPATH/src/github.com/suryanaicker79/travisci-golang-example
+WORKDIR go/src/github.com/suryanaicker79/travisci-golang-example
 COPY . .
 
 RUN go get -d -v ./...
