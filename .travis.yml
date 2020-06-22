@@ -5,7 +5,7 @@ services:
 
 before_install:
 - docker build --no-cache -t suryanaicker79/travisexample:travis .
-- docker run suryanaicker79/travisexample:travis github.com/suryanaicker79/travisci-golang-example/travisci-golang-example.test
+- docker run suryanaicker79/travisexample:travis https://github.com/suryanaicker79/travisci-golang-example/travisci-golang-example.test
 - docker run -d -p 127.0.0.1:8000:8000 suryanaicker79/travisexample:travis
 
 script:
