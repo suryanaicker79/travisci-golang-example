@@ -7,10 +7,11 @@ before_install:
 - docker build --no-cache -t travis:mytrav .
 - docker run travis:mytrav /go/src/github.com//suryanaicker79/travisci-golang-example/travisci-golang-example.test
 - docker run -d travis:mytrav
+- docker run images
 
 script:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push travis:mytrav
+  
 
 
 
