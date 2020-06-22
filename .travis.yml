@@ -11,7 +11,7 @@ before_install:
 script:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker images
-  - docker push travisci-golang-example 
+  - docker push suryanaicker/travisci-golang-example 
 
 
 
