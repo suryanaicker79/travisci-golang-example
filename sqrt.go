@@ -1,5 +1,12 @@
-package newmath
+package main
+import "fmt"
 
+
+func main(){
+fmt.Println("hello")
+fmt.Println(Sqrt(64))
+
+}
 // Sqrt returns an approximation to the square root of x.
 func Sqrt(x float64) float64 {
 	// This is a terrible implementation.
@@ -10,3 +17,4 @@ func Sqrt(x float64) float64 {
 	}
 	return z
 }
+
