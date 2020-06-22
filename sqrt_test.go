@@ -1,4 +1,4 @@
-package newmath
+package main
 
 import "testing"
 
