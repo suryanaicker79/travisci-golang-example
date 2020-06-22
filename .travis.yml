@@ -5,9 +5,9 @@ services:
 
 
 before_install:
-- docker build -t suryanaicker79/travisexample:travis .
-- docker run suryanaicker79/travisexample:travis /go/src/github.com/suryanaicker79/travisci-golang-example/travisci-golang-example.test
-- docker run -d  suryanaicker79/travisexample:travis
+- docker build -t travisexample:travis .
+- docker run travisexample:travis /go/src/github.com/suryanaicker79/travisci-golang-example/travisci-golang-example.test
+- docker run -d travisexample:travis
 
 script:
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
