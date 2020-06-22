@@ -12,7 +12,7 @@ script:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker images
   - docker tag travisci-golang-example:latest travisci-golang-example:doc
-  - docker push travisci-golang-example:doc
+  - docker push suryanaicker/travisci-golang-example:doc
 
 
 
