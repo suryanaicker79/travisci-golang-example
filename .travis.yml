@@ -11,7 +11,7 @@ before_install:
 script:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker images
-  - docker tag  c14ca33524c4  travisci-golang-example:doc
+  - docker tag travisci-golang-example:doc
   - docker push suryanaicker/travisci-golang-example:doc
 
 
