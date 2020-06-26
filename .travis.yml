@@ -9,16 +9,11 @@ before_install:
 - docker run travisci-golang-example /go/src/github.com/suryanaicker79/travisci-golang-example/travisci-golang-example.test
 - docker run travisci-golang-example
 
-install:
-  # install deps
-  - yarn install
-
 
 script:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - echo "$HEROKU_PASSWORD" | docker login -u "$HEROKU_USERNAME" --password-stdin registry.heroku.com
-  - yarn test
-  - yarn build
+  - heroku create $HEROKU_APP_NAME
   - docker images
   - docker tag travisci-golang-example:latest suryanaicker/travisci-golang-example:latest
   - docker push suryanaicker/travisci-golang-example:latest
