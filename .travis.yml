@@ -4,15 +4,33 @@ services:
   - docker
 
 before_install:
+- wget -qO- https://toolbelt.heroku.com/install.sh | sh
 - docker build --no-cache -t travisci-golang-example .
 - docker run travisci-golang-example /go/src/github.com/suryanaicker79/travisci-golang-example/travisci-golang-example.test
 - docker run travisci-golang-example
 
+install:
+  # install deps
+  - yarn install
+
+
 script:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - echo "$HEROKU_PASSWORD" | docker login -u "$HEROKU_USERNAME" --password-stdin registry.heroku.com
+  - yarn test
+  - yarn build
   - docker images
   - docker tag travisci-golang-example:latest suryanaicker/travisci-golang-example:latest
   - docker push suryanaicker/travisci-golang-example:latest
+
+deploy:
+  provider: script
+  script: 
+    docker push registry.heroku.com/$HEROKU_APP_NAME/web;
+    heroku container:release web --app $HEROKU_APP_NAME
+  on:
+    branch: master
+
 
 
 
